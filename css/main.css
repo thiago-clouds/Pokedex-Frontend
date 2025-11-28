@@ -95,16 +95,26 @@ body    {
 
 .btn-favorito {
     background: none;
-    border: nobe;
+    border: none;
     font-size: 20px;
     cursor: pointer;
     margin-left: 10px;
     transition: transform 0.2s;
 }
 
-.btn-favorito:hover {
-    transform: scale(1.2);
+.btn-favorito i{
+    font-size: 24px;
+    color:black;
+    transition: color 0.3s ease;
+}
+
+.btn-favorito i.favorito-activo {
     color: gold;
+}
+
+.btn-favorito:hover i.favorito-activo{
+    color: goldenrod;
+
 }
 
 #paginacion {

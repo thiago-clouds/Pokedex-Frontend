@@ -112,7 +112,9 @@ function mostrarPokemon(poke) {
             <div class="nombre-contenedor">
                 <p class="pokemon-id">#${pokeId}</p>
                 <h2 class="pokemon-nombre">${poke.name}</h2>
-                <button class="btn-favorito" data-id="${poke.id}">⭐</button>
+                <button class="btn-favorito" data-id="${poke.id}">
+                <i class="bi bi-star-fill"></i>
+                </button>
             </div>
             <div class="pokemon-tipos">
                 ${tipos}
@@ -141,10 +143,14 @@ function toggleFavorito(poke) {
     let favoritos = getFavoritos();
     const existe = favoritos.find(p => p.id === poke.id);
 
+    const btnIcon = document.querySelector(`button[data-id="${poke.id}"] i`);
+
     if (existe) {
         favoritos = favoritos.filter(p => p.id !== poke.id);
+        btnIcon.classList.remove("favorito-activo")
     } else {
         favoritos.push(poke);
+        btnIcon.classList.add("favorito-activo")
     }
 
     saveFavoritos(favoritos);
